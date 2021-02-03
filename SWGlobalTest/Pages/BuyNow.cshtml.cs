@@ -37,14 +37,14 @@ namespace SWGlobalTest.Pages
         public string Errors { get; set; }
 
 
-        public async Task<IActionResult> OnGetAsync(int? id)
+        public async Task<IActionResult> OnGetAsync(int? offerId)
         {
-            if (id == null)
+            if (offerId == null)
             {
                 return NotFound();
             }
 
-            Offer = (await _offerService.GetDetails(id.GetValueOrDefault())).Data;
+            Offer = (await _offerService.GetDetails(offerId.GetValueOrDefault())).Data;
 
             if (Offer == null)
             {
